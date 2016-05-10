@@ -1,0 +1,14 @@
+improvement of zipfile for a particular usecase,
+
+namely when you need a known set of files from a zip containing a lot more files
+
+
+The problem that's solved by this improvement
+http://stackoverflow.com/questions/37141286/efficiently-read-one-file-from-a-zip-containing-a-lot-of-files-in-python
+
+Note: It's quite hacky right now and much of the functionality is simply not tested since the change. function that helps you that is defined in zipfile.py
+
+    def extractFilesFromZip(zip:str, filenamelist:list): 
+        setlist = set(filenamelist)
+        with ZipFile(zip, to_extract=setlist, mode='r') as myzip:
+            return [myzip.open(filename).read() for filename in setlist]
