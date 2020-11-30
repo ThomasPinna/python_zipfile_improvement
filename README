@@ -12,3 +12,6 @@ Note: It's quite hacky right now and much of the functionality is simply not tes
         setlist = set(filenamelist)
         with ZipFile(zip, to_extract=setlist, mode='r') as myzip:
             return [myzip.open(filename).read() for filename in setlist]
+
+This code comes without any guarantees:
+- I copied the zipfile code from pypy and edited to for my specific use case
